@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
-import { StudentModel } from './student-dashboard.model';
+import StudentModel from './student-dashboard.model';
 
 
 @Component({
