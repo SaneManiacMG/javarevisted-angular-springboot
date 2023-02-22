@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { ApiService } from '../shared/api.service';
+import { StudentModel } from './student-dashboard.model';
+
 
 @Component({
   selector: 'app-student-dashboard',
@@ -33,8 +36,8 @@ export class StudentDashboardComponent implements OnInit {
 
     console.log(this.studentModelOb);
 
-    this.api.postStudentDetails(this.studentModelOb)
-    .subscribe(res=>{
+    this.api.postStudent(this.studentModelOb)
+    .subscribe((res: any) => {
       console.log(res);
       alert("Student added successfully");
       let ref = document.getElementById('cancel');
@@ -42,21 +45,21 @@ export class StudentDashboardComponent implements OnInit {
       this.formValue.reset();
       this.getAllStudents();
     },
-    err=>{
+    (err: any) => {
       alert("Something went wrong");
     })
   }
 
   getAllStudents() {
     this.api.getStudent()
-    .subscribe(res=>{
+    .subscribe((res: any) => {
       this.studentData = res;
     })
   }
 
   deleteStudent(row: any) {
     this.api.deleteStudent(row.id)
-    .subscribe(res=>{
+    .subscribe((res: any) => {
       alert("Student deleted");
       this.getAllStudents();
     })
@@ -75,7 +78,7 @@ export class StudentDashboardComponent implements OnInit {
     this.studentModelOb.grade = this.formValue.value.grade;
 
     this.api.updateStudent(this.studentModelOb)
-    .subscribe(res=>{
+    .subscribe((res: any) => {
       alert("Student details updated successfully");
       console.log(res);
       let ref = document.getElementById('cancel');
