@@ -43,15 +43,15 @@
                 </span></button>
             </div>
             <div class="modal-body">
-                <form [formGroup] = "formValue">
+                <form [formGroup]="formValue">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="nameHelp" 
+                        <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="nameHelp"
                         placeholder="First Name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp" 
+                        <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp"
                         placeholder="Email Address">
                     </div>
                     <div class="form-group">

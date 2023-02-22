@@ -17,7 +17,7 @@ export class ApiService {
   }
 
   getStudent() {
-    return this.http.get<any>("http://localhost:8080/student", data)
+    return this.http.get<any>("http://localhost:8080/student")
     .pipe(map((res: any) => {
       console.log(res)
       return res;
@@ -25,7 +25,7 @@ export class ApiService {
   }
 
   updateStudent(data: any) {
-    return this.http.post<any>("http://localhost:8080/updatestudent", data)
+    return this.http.post<any>("http://localhost:8080/updateStudent", data)
     .pipe(map((res: any) => {
       return res;
     }))
